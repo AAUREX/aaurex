@@ -4,10 +4,21 @@
 // 1. Header scroll effect
 // 2. Scroll animations
 // 3. Homepage AI preview buttons
-// 4. AI Tools real backend connection
-// 5. Contact form backend email automation
+// 4. Contact form backend email automation
+// 5. AI Tools real backend connection
 // ======================================================
 
+
+// ======================================================
+// LIVE RENDER BACKEND URL
+// ======================================================
+
+const BACKEND_URL = "https://aaurex.onrender.com";
+
+
+// ======================================================
+// MAIN PAGE INTERACTIONS
+// ======================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -137,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
             contactStatus.innerText = "Sending your message...";
 
             try {
-                const response = await fetch("http://localhost:3000/api/contact", {
+                const response = await fetch(`${BACKEND_URL}/api/contact`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -161,14 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     contactForm.reset();
                 } else {
                     contactStatus.innerText =
-                        "Message could not be sent. Please try again.";
+                        data.message || "Message could not be sent. Please try again.";
                 }
 
             } catch (error) {
                 console.error("Contact Form Error:", error);
 
                 contactStatus.innerText =
-                    "Server not responding. Please make sure the backend is running.";
+                    "Server not responding. Please make sure the Render backend is live.";
             }
         });
     }
@@ -192,8 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ======================================================
-// REAL AAUREX AI ASSISTANT
-// Used on ai-tools.html
+// AI TOOLS PAGE: FILL PROMPT
+// Used by suggestion buttons on ai-tools.html
 // ======================================================
 
 function fillPrompt(text) {
@@ -205,6 +216,11 @@ function fillPrompt(text) {
     }
 }
 
+
+// ======================================================
+// REAL AAUREX AI ASSISTANT
+// Used on ai-tools.html
+// ======================================================
 
 async function sendAIMessage() {
     const input = document.getElementById("aiInput");
@@ -234,7 +250,7 @@ async function sendAIMessage() {
     chatBody.scrollTop = chatBody.scrollHeight;
 
     try {
-        const response = await fetch("http://localhost:3000/api/ai-chat", {
+        const response = await fetch(`${BACKEND_URL}/api/ai-chat`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -263,7 +279,7 @@ async function sendAIMessage() {
 
         typingBubble.innerHTML = `
             <strong>AAUREX Assistant</strong>
-            <p>Server not responding. Please make sure the backend is running.</p>
+            <p>Server not responding. Please make sure the Render backend is live.</p>
         `;
     }
 
