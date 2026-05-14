@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools | AAUREX</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+
+        <div class="brand">
+            <div class="brand-mark">⚕</div>
+
+            <div>
+                <h1>AAUREX</h1>
+                <p>Research • Education • Excellence</p>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="conferences.html">Conferences</a>
+            <a href="members.html">Members</a>
+            <a href="ai-tools.html" class="active">AI Tools</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="header-btn">Join AAUREX</a>
+
+    </header>
+
+
+
+    <!-- ================= PAGE HERO ================= -->
+    <main>
+
+        <section class="page-hero ai-tools-hero">
+
+            <div class="page-hero-content">
+
+                <p class="hero-label">
+                    INTELLIGENT LEARNING SUPPORT
+                </p>
+
+                <h2>
+                    AI Tools Designed to Support
+                    <span>Medical Learning</span>
+                </h2>
+
+                <p class="hero-description">
+                    AAUREX uses AI as a supportive educational tool — helping students explore concepts,
+                    ask questions, plan research ideas, and understand medical topics more interactively.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= AI TOOL HUB ================= -->
+        <section class="section-block">
+
+            <div class="section-heading">
+                <p>AAUREX AI ECOSYSTEM</p>
+                <h2>AI is not the identity of AAUREX — it is a tool that supports better learning.</h2>
+            </div>
+
+            <div class="story-grid">
+
+                <div class="story-card">
+                    <h3>Medical Q&A Assistant</h3>
+                    <p>
+                        Ask academic medical questions and receive structured, student-friendly explanations.
+                    </p>
+                </div>
+
+                <div class="story-card">
+                    <h3>Learning Explainer</h3>
+                    <p>
+                        Break down complex anatomy, physiology, pathology, and clinical concepts into simpler ideas.
+                    </p>
+                </div>
+
+                <div class="story-card">
+                    <h3>Research Support</h3>
+                    <p>
+                        Brainstorm research questions, presentation topics, abstracts, and conference ideas.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CHATBOT INTERFACE ================= -->
+        <section class="ai-workspace-section">
+
+            <div class="ai-workspace">
+
+                <div class="ai-sidebar">
+
+                    <div class="ai-orb-large">◎</div>
+
+                    <h3>AAUREX Assistant</h3>
+
+                    <p>
+                        A premium AI learning assistant for academic guidance, medical concept clarification,
+                        workshop queries, research support, and conference information.
+                    </p>
+
+                    <div class="ai-mini-list">
+                        <span>Medical Q&A</span>
+                        <span>Research Ideas</span>
+                        <span>Workshop Help</span>
+                        <span>Conference Guidance</span>
+                    </div>
+
+                </div>
+
+                <div class="ai-chat-window">
+
+                    <div class="chat-top">
+                        <div>
+                            <h3>AAUREX Intelligence Assistant</h3>
+                            <p>Educational support mode</p>
+                        </div>
+
+                        <span class="status-dot">● Online</span>
+                    </div>
+
+                    <div class="chat-body" id="chatBody">
+
+                        <div class="bot-message">
+                            <strong>AAUREX Assistant</strong>
+                            <p>
+                                Hello. I can help you explore AAUREX, understand medical learning concepts,
+                                and guide you toward workshops, research, conferences, and membership.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="chat-suggestions">
+                        <button onclick="fillPrompt('Tell me about AAUREX research opportunities')">Research Opportunities</button>
+                        <button onclick="fillPrompt('How can I join workshops?')">Workshops</button>
+                        <button onclick="fillPrompt('Explain anatomy learning support')">Anatomy Learning</button>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="aiInput" placeholder="Ask AAUREX Assistant...">
+                        <button onclick="sendAIMessage()">Send</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DISCLAIMER ================= -->
+        <section class="section-block">
+
+            <div class="section-heading">
+                <p>IMPORTANT NOTE</p>
+                <h2>AI support is educational, not clinical advice.</h2>
+            </div>
+
+            <div class="story-card">
+                <h3>Educational Use Only</h3>
+                <p>
+                    AAUREX AI tools are designed for learning, research support, and academic exploration.
+                    They should not be used for diagnosis, treatment decisions, or emergency medical guidance.
+                    Always consult qualified healthcare professionals for clinical decisions.
+                </p>
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FINAL CTA ================= -->
+        <section class="final-cta">
+
+            <p>LEARN WITH INTELLIGENCE</p>
+
+            <h2>
+                Explore how technology can make medical learning more interactive and accessible.
+            </h2>
+
+            <a href="contact.html" class="primary-btn">Ask About AI Tools</a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div>
+            <h2>AAUREX</h2>
+            <p>Alliance for Advancement in Universal Research, Education and Excellence</p>
+        </div>
+
+        <p>
+            Website Designed & Developed by <strong>Tarun Murali Mandadi</strong>
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

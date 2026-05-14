@@ -1,0 +1,26 @@
+{
+  "name": "aaurex",
+  "version": "1.0.0",
+  "description": "AAUREX official website and backend system",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "keywords": [
+    "aaurex",
+    "medical",
+    "education",
+    "research",
+    "workshops",
+    "conferences"
+  ],
+  "author": "Tarun Murali Mandadi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.7",
+    "openai": "^6.37.0"
+  }
+}
