@@ -1623,3 +1623,50 @@ img {
         text-align: center;
     }
 }
+/* ================= MEMBERS PAGE MOBILE FINAL FIX ================= */
+
+@media (max-width: 900px) {
+
+    .members-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+        width: 100% !important;
+    }
+
+    .member-card {
+        display: block !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .member-card img {
+        display: block !important;
+        width: 100% !important;
+        height: 260px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .member-card h3,
+    .member-card p {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .members-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .member-card img {
+        height: 240px !important;
+    }
+}
