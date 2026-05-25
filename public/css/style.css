@@ -1669,4 +1669,150 @@ img {
     .member-card img {
         height: 240px !important;
     }
+}/* ================= FORCE FULL MEMBERS PAGE TO SHOW ON MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    html,
+    body {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+    main,
+    section,
+    .section-block,
+    .members-dark,
+    .team-section,
+    .members-section,
+    .chief-section,
+    .heads-section {
+        display: block !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .reveal,
+    .reveal-delay-1,
+    .reveal-delay-2,
+    .reveal-delay-3 {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .chief-grid,
+    .heads-grid,
+    .members-grid,
+    .team-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .person-card,
+    .member-card,
+    .team-card,
+    .chief-card,
+    .head-card {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .person-photo,
+    .member-card img,
+    .team-card img,
+    .person-card img {
+        display: block !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-height: 240px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .person-info,
+    .member-info,
+    .team-info {
+        display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+/* ================= PHONE FIX: SHOW ALL MEMBERS ================= */
+
+@media (max-width: 900px) {
+
+    .members-dark,
+    .members-section,
+    .team-section,
+    .section-block {
+        display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .members-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .member-card {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        position: relative !important;
+    }
+
+    .member-card img {
+        display: block !important;
+        width: 100% !important;
+        height: 240px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .member-card h3,
+    .member-card p {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 }
