@@ -1346,3 +1346,280 @@ img {
         grid-template-columns: 1fr;
     }
 }
+/* ================= MOBILE RESPONSIVE FIX FOR ALL AAUREX PAGES ================= */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 18px 20px;
+    }
+
+    .brand {
+        width: 100%;
+    }
+
+    .navbar {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .header-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero,
+    .page-hero {
+        padding: 80px 20px 55px;
+        min-height: auto;
+    }
+
+    .hero-content,
+    .page-hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h2,
+    .page-hero h2,
+    .section-heading h2,
+    .final-cta h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.12;
+    }
+
+    .hero-description,
+    .page-hero-content p,
+    .section-heading,
+    .section-heading p {
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .header-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-block {
+        padding: 60px 20px;
+    }
+
+    .section-heading {
+        text-align: left;
+        margin-bottom: 28px;
+    }
+
+    .grid-3,
+    .grid-4,
+    .impact-grid,
+    .core-grid,
+    .workshop-grid,
+    .conference-grid,
+    .research-grid,
+    .members-grid,
+    .chief-grid,
+    .heads-grid,
+    .team-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    .split-section,
+    .about-split,
+    .research-split,
+    .workshop-split,
+    .conference-split,
+    .president-layout,
+    .event-layout,
+    .contact-layout {
+        grid-template-columns: 1fr !important;
+        gap: 28px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .image-card,
+    .split-image,
+    .president-photo,
+    .person-photo {
+        width: 100%;
+    }
+
+    .president-photo,
+    .president-photo img {
+        min-height: 420px;
+    }
+
+    .person-photo {
+        height: 260px;
+    }
+
+    .member-card .person-photo {
+        height: 210px;
+    }
+
+    .card,
+    .feature-card,
+    .stat-card,
+    .person-card,
+    .president-card,
+    .event-card {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: left;
+        padding: 35px 20px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .site-header {
+        padding: 16px;
+    }
+
+    .brand h1 {
+        font-size: 1.35rem;
+    }
+
+    .brand p {
+        font-size: 0.78rem;
+    }
+
+    .brand-mark {
+        width: 46px;
+        height: 46px;
+        font-size: 1.3rem;
+    }
+
+    .navbar {
+        gap: 8px;
+    }
+
+    .navbar a {
+        font-size: 0.82rem;
+        padding: 7px 9px;
+    }
+
+    .hero,
+    .page-hero {
+        padding: 65px 16px 45px;
+    }
+
+    .hero h2,
+    .page-hero h2 {
+        font-size: 2.15rem;
+    }
+
+    .hero-description,
+    .page-hero-content p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .section-block {
+        padding: 50px 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .section-heading p {
+        font-size: 0.8rem;
+        letter-spacing: 1.4px;
+    }
+
+    .president-card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .president-photo,
+    .president-photo img {
+        min-height: 380px;
+        border-radius: 24px;
+    }
+
+    .person-photo {
+        height: 240px;
+    }
+
+    .member-card .person-photo {
+        height: 190px;
+    }
+
+    .person-info {
+        padding: 20px;
+    }
+
+    .final-cta {
+        padding: 55px 18px;
+        text-align: center;
+    }
+
+    .final-cta h2 {
+        font-size: 1.9rem;
+    }
+}
+/* ================= MEMBERS BUTTON ON HOME PAGE ================= */
+
+.members-mobile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--champagne);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.members-mobile-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 900px) {
+    .members-mobile-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
