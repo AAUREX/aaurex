@@ -7,6 +7,419 @@
     <title>AAUREX | Research, Education & Excellence</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Animation and layout additions only.
+           Main brand theme, font and global styling remain from css/style.css */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .site-header {
+            animation: aaurexSlideDown 0.8s ease both;
+        }
+
+        .brand-mark {
+            animation: aaurexPulse 2.8s ease-in-out infinite;
+        }
+
+        .hero-label {
+            animation: aaurexFadeUp 0.8s ease both;
+        }
+
+        .hero-content h2 {
+            animation: aaurexFadeUp 1s ease both;
+        }
+
+        .hero-description {
+            animation: aaurexFadeUp 1.15s ease both;
+        }
+
+        .hero-actions {
+            animation: aaurexFadeUp 1.3s ease both;
+        }
+
+        .ai-panel {
+            animation: aaurexFloat 4.5s ease-in-out infinite;
+        }
+
+        .ai-options button,
+        .ai-input button,
+        .primary-btn,
+        .secondary-btn,
+        .header-btn,
+        .feature-card a {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover,
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .ai-options button:hover {
+            transform: translateX(5px);
+        }
+
+        .feature-card,
+        .impact-card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .feature-card:hover,
+        .impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card img,
+        .split-image img {
+            transition: transform 0.7s ease;
+        }
+
+        .feature-card:hover img,
+        .split-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        /* ================= UPCOMING EVENT SECTION - HOME PAGE ONLY ================= */
+
+        .upcoming-event-section {
+            position: relative;
+            padding: 90px 8%;
+            background:
+                linear-gradient(135deg, rgba(18, 34, 63, 0.96), rgba(85, 54, 120, 0.92)),
+                url("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1400&q=90");
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .upcoming-event-section::before {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            top: -120px;
+            right: -120px;
+            animation: orbitGlow 7s ease-in-out infinite;
+        }
+
+        .upcoming-event-section::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            bottom: -90px;
+            left: -80px;
+            animation: orbitGlow 8s ease-in-out infinite reverse;
+        }
+
+        .event-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .event-label {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .event-content h2 {
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .event-content h2 span {
+            display: block;
+            color: #f2e9ff;
+        }
+
+        .event-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 720px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 26px;
+        }
+
+        .event-points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .event-point {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.11);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .event-point:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .event-point strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .event-point span {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.95rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(18px);
+            border-radius: 32px;
+            padding: 34px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            animation: aaurexFloat 4.5s ease-in-out infinite;
+        }
+
+        .event-card-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 26px;
+        }
+
+        .event-icon {
+            width: 62px;
+            height: 62px;
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.18);
+            font-size: 2rem;
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .event-card p {
+            color: rgba(255, 255, 255, 0.78);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .event-info-list {
+            display: grid;
+            gap: 14px;
+            margin: 28px 0;
+        }
+
+        .event-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .event-info span {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .event-info strong {
+            color: #ffffff;
+            text-align: right;
+        }
+
+        .event-button {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 15px 22px;
+            border-radius: 50px;
+            background: #ffffff;
+            color: #1b2445;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 35px rgba(255, 255, 255, 0.18);
+        }
+
+        @keyframes aaurexSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes orbitGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(25px, 25px) scale(1.08);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .event-container {
+                grid-template-columns: 1fr;
+            }
+
+            .event-points {
+                grid-template-columns: 1fr;
+            }
+
+            .upcoming-event-section {
+                padding: 70px 6%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .event-card {
+                padding: 24px;
+                border-radius: 24px;
+            }
+
+            .event-info {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .event-info strong {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -109,24 +522,24 @@
 
 
         <!-- ================= IMPACT STATS ================= -->
-        <section class="impact-section">
+        <section class="impact-section reveal">
 
-            <div class="impact-card">
+            <div class="impact-card reveal reveal-delay-1">
                 <h3>Medical Students</h3>
                 <p>Learning through interactive education and practical exposure.</p>
             </div>
 
-            <div class="impact-card">
+            <div class="impact-card reveal reveal-delay-2">
                 <h3>Research</h3>
                 <p>Encouraging medical innovation, student research, and academic curiosity.</p>
             </div>
 
-            <div class="impact-card">
+            <div class="impact-card reveal reveal-delay-3">
                 <h3>Workshops</h3>
                 <p>Hands-on learning experiences including anatomy and clinical training.</p>
             </div>
 
-            <div class="impact-card">
+            <div class="impact-card reveal reveal-delay-1">
                 <h3>Conferences</h3>
                 <p>Professional academic events connecting students, doctors, and universities.</p>
             </div>
@@ -135,8 +548,112 @@
 
 
 
+        <!-- ================= UPCOMING EVENT ================= -->
+        <section class="upcoming-event-section reveal">
+
+            <div class="event-container">
+
+                <div class="event-content reveal reveal-delay-1">
+
+                    <span class="event-label">Upcoming AAUREX Event</span>
+
+                    <h2>
+                        Kidney Dissection
+                        <span>Workshop 2026</span>
+                    </h2>
+
+                    <p>
+                        AAUREX presents an immersive hands-on Kidney Dissection Workshop designed for medical students
+                        and young healthcare learners to understand renal anatomy through practical exposure, guided
+                        explanation, creative teaching, and clinical connection.
+                    </p>
+
+                    <p>
+                        This workshop will help participants explore the external and internal features of the kidney,
+                        understand renal blood supply, identify important anatomical landmarks, and connect textbook
+                        anatomy with real practical observation.
+                    </p>
+
+                    <div class="event-points">
+
+                        <div class="event-point">
+                            <strong>Hands-on Anatomy</strong>
+                            <span>Practical renal dissection with guided learning.</span>
+                        </div>
+
+                        <div class="event-point">
+                            <strong>Creative Learning</strong>
+                            <span>Medicine taught through visuals, memory, storytelling, models, and art.</span>
+                        </div>
+
+                        <div class="event-point">
+                            <strong>Clinical Connection</strong>
+                            <span>Relating kidney anatomy to medicine and diagnosis.</span>
+                        </div>
+
+                        <div class="event-point">
+                            <strong>First AAUREX Event</strong>
+                            <span>The beginning of AAUREX practical medical workshops.</span>
+                        </div>
+
+                    </div>
+
+                    <a href="workshops.html" class="primary-btn">Explore Workshop Details</a>
+
+                </div>
+
+                <div class="event-card reveal reveal-delay-2">
+
+                    <div class="event-card-top">
+                        <div class="event-icon">🩺</div>
+
+                        <div>
+                            <h3>Event Details</h3>
+                            <p>Practical medical learning through anatomy, creativity, and observation.</p>
+                        </div>
+                    </div>
+
+                    <div class="event-info-list">
+
+                        <div class="event-info">
+                            <span>Workshop</span>
+                            <strong>Kidney Dissection</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <span>Date</span>
+                            <strong>21 June 2026</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <span>Time</span>
+                            <strong>12:00 PM – 5:00 PM</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <span>Organised by</span>
+                            <strong>AAUREX</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <span>Focus</span>
+                            <strong>Renal Anatomy & Practical Learning</strong>
+                        </div>
+
+                    </div>
+
+                    <a href="contact.html" class="event-button">Register Your Interest</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
         <!-- ================= CORE AREAS ================= -->
-        <section class="section-block">
+        <section class="section-block reveal">
 
             <div class="section-heading">
                 <p>AAUREX ECOSYSTEM</p>
@@ -145,7 +662,7 @@
 
             <div class="feature-grid">
 
-                <article class="feature-card">
+                <article class="feature-card reveal reveal-delay-1">
                     <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" alt="Medical education">
                     <div>
                         <h3>Medical Education</h3>
@@ -154,7 +671,7 @@
                     </div>
                 </article>
 
-                <article class="feature-card">
+                <article class="feature-card reveal reveal-delay-2">
                     <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=80" alt="Research lab">
                     <div>
                         <h3>Research & Innovation</h3>
@@ -163,7 +680,7 @@
                     </div>
                 </article>
 
-                <article class="feature-card">
+                <article class="feature-card reveal reveal-delay-3">
                     <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80" alt="Medical workshop">
                     <div>
                         <h3>Workshops & Training</h3>
@@ -172,7 +689,7 @@
                     </div>
                 </article>
 
-                <article class="feature-card">
+                <article class="feature-card reveal reveal-delay-1">
                     <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=80" alt="Conference">
                     <div>
                         <h3>Conferences</h3>
@@ -188,13 +705,13 @@
 
 
         <!-- ================= ART IN MEDICINE ================= -->
-        <section class="split-section">
+        <section class="split-section reveal">
 
-            <div class="split-image">
-                <img src="https://images.unsplash.com/photo-1581093458791-9d15482442f6?auto=format&fit=crop&w=1000&q=80" alt="Creative medical learning">
+            <div class="split-image reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=90" alt="Creative medical anatomy learning">
             </div>
 
-            <div class="split-content">
+            <div class="split-content reveal reveal-delay-2">
 
                 <p class="section-label">CREATIVE MEDICAL LEARNING</p>
 
@@ -218,7 +735,7 @@
 
 
         <!-- ================= FINAL CTA ================= -->
-        <section class="final-cta">
+        <section class="final-cta reveal">
 
             <p>JOIN THE AAUREX ECOSYSTEM</p>
 
@@ -247,6 +764,24 @@
         </p>
 
     </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    </script>
 
     <script src="js/script.js"></script>
 

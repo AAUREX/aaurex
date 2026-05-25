@@ -7,6 +7,298 @@
     <title>Workshops | AAUREX</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Only layout, placement, image alignment and animations.
+           No brand colour, font, or theme changes. */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .site-header {
+            animation: aaurexSlideDown 0.8s ease both;
+        }
+
+        .brand-mark {
+            animation: aaurexPulse 2.8s ease-in-out infinite;
+        }
+
+        .hero-content {
+            animation: aaurexFadeUp 1s ease both;
+        }
+
+        .hero-label {
+            animation: aaurexFadeUp 0.8s ease both;
+        }
+
+        .hero-description,
+        .hero-actions {
+            animation: aaurexFadeUp 1.15s ease both;
+        }
+
+        .event-spotlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 42px;
+            align-items: center;
+            margin-top: 35px;
+        }
+
+        .event-photo {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+            transform: translateZ(0);
+        }
+
+        .event-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .event-photo:hover img {
+            transform: scale(1.06);
+        }
+
+        .event-content-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-content-box h3 {
+            margin-bottom: 18px;
+        }
+
+        .event-content-box p {
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+
+        .event-info-line {
+            line-height: 1.8;
+            margin: 18px 0 26px;
+        }
+
+        .event-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+            margin-top: 35px;
+        }
+
+        .event-detail-card {
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .event-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .event-detail-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .event-detail-card p {
+            line-height: 1.75;
+        }
+
+        .event-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 35px;
+        }
+
+        .event-gallery-card {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .event-gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.14);
+        }
+
+        .event-gallery-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .event-gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .event-gallery-card div {
+            padding: 22px;
+        }
+
+        .event-gallery-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .event-gallery-card p {
+            line-height: 1.65;
+        }
+
+        .feature-card img,
+        .split-image img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .feature-card:hover img,
+        .split-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .primary-btn,
+        .secondary-btn,
+        .header-btn,
+        .feature-card a {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover,
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        @keyframes aaurexSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .event-spotlight {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .event-photo {
+                min-height: 420px;
+            }
+
+            .event-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .event-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .event-spotlight {
+                gap: 24px;
+            }
+
+            .event-photo {
+                min-height: 280px;
+                border-radius: 20px;
+            }
+
+            .event-gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .event-gallery-card img {
+                height: 240px;
+            }
+
+            .event-detail-card {
+                padding: 22px;
+                border-radius: 20px;
+            }
+
+            .event-gallery-card div {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -40,12 +332,14 @@
 
 
 
-    <!-- ================= PAGE HERO ================= -->
     <main>
 
-        <section class="page-hero workshops-hero">
+        <!-- ================= WORKSHOPS HERO ================= -->
+        <section class="hero-section">
 
-            <div class="page-hero-content">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
 
                 <p class="hero-label">
                     PRACTICAL MEDICAL TRAINING
@@ -57,10 +351,15 @@
                 </h2>
 
                 <p class="hero-description">
-                    AAUREX workshops are designed to make medical learning practical, interactive,
-                    visual, and memorable through anatomy sessions, clinical skill development,
-                    emergency medicine basics, creative learning, and student-led teaching.
+                    AAUREX workshops are designed to make medical learning practical, interactive, visual, and memorable
+                    through anatomy sessions, clinical skill development, emergency medicine basics, creative learning,
+                    and student-led teaching.
                 </p>
+
+                <div class="hero-actions">
+                    <a href="#first-event" class="primary-btn">View First Workshop</a>
+                    <a href="contact.html" class="secondary-btn">Register Interest</a>
+                </div>
 
             </div>
 
@@ -68,37 +367,208 @@
 
 
 
-        <!-- ================= WORKSHOP PHILOSOPHY ================= -->
-        <section class="section-block">
+        <!-- ================= FIRST EVENT SPOTLIGHT ================= -->
+        <section class="section-block reveal" id="first-event">
+
+            <div class="section-heading">
+                <p>FIRST AAUREX WORKSHOP</p>
+                <h2>Kidney Dissection Workshop — The Beginning of AAUREX Practical Learning</h2>
+            </div>
+
+            <div class="event-spotlight">
+
+                <div class="event-photo reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1559757175-053139280de2?auto=format&fit=crop&w=1400&q=90"
+                        alt="Kidney anatomy model for medical workshop">
+                </div>
+
+                <div class="event-content-box reveal reveal-delay-2">
+
+                    <p class="section-label">AAUREX FIRST EVENT</p>
+
+                    <h3>Not just a workshop — a new way to experience medicine.</h3>
+
+                    <p>
+                        The Kidney Dissection Workshop will be the first practical event by AAUREX, created to make
+                        medical learning more exciting, interactive, and unforgettable. Instead of simply listening to
+                        theory, students will experience kidney anatomy through practical observation, creative teaching,
+                        clinical connection, and different forms of art.
+                    </p>
+
+                    <p>
+                        Our aim is to show students that medicine is not only something to memorise. It can be seen,
+                        modelled, acted, explained, visualised, discussed, performed, designed, and experienced.
+                    </p>
+
+                    <p>
+                        This workshop will combine anatomy with creativity so that students understand the kidney in a
+                        deeper and more enjoyable way.
+                    </p>
+
+                    <p class="event-info-line">
+                        <strong>Date:</strong> 21 June 2026<br>
+                        <strong>Time:</strong> 12:00 PM – 5:00 PM<br>
+                        <strong>Event Type:</strong> Hands-on Anatomy & Creative Medical Learning Workshop<br>
+                        <strong>Focus:</strong> Kidney Dissection, Renal Anatomy, Art-Based Learning & Clinical Concepts
+                    </p>
+
+                    <a href="contact.html" class="primary-btn">Register Your Interest</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FIRST EVENT DETAILS ================= -->
+        <section class="section-block reveal">
+
+            <div class="section-heading">
+                <p>WHAT MAKES THE FIRST EVENT SPECIAL</p>
+                <h2>Medicine taught through dissection, creativity, memory, and imagination.</h2>
+            </div>
+
+            <div class="event-detail-grid">
+
+                <div class="event-detail-card reveal reveal-delay-1">
+                    <h3>Hands-On Kidney Dissection</h3>
+                    <p>
+                        Students will explore the kidney through practical dissection-based learning. They will observe
+                        the external surface, internal arrangement, major renal structures, anatomical landmarks, and
+                        important features that are usually difficult to understand only from textbook diagrams.
+                    </p>
+                </div>
+
+                <div class="event-detail-card reveal reveal-delay-2">
+                    <h3>Art in Many Forms</h3>
+                    <p>
+                        In AAUREX, art does not only mean drawing or sketching. We will use visual storytelling,
+                        model-based explanation, role-play, medical theatre, rhythm-based mnemonics, concept mapping,
+                        digital visuals, creative diagrams, and memory techniques to make anatomy easier to understand.
+                    </p>
+                </div>
+
+                <div class="event-detail-card reveal reveal-delay-1">
+                    <h3>AI-Generated Concept Visuals</h3>
+                    <p>
+                        The event will include AI-inspired medical visuals and concept-based illustrations to help
+                        students imagine kidney structure, blood supply, filtration, and clinical relevance in a more
+                        modern and engaging way.
+                    </p>
+                </div>
+
+                <div class="event-detail-card reveal reveal-delay-2">
+                    <h3>Clinical Connection</h3>
+                    <p>
+                        Students will not only learn what the kidney looks like, but also why it matters clinically.
+                        The session will connect renal anatomy with medicine, diagnosis, kidney function, blood supply,
+                        and common clinical understanding needed by future doctors.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CREATIVE LEARNING EXPERIENCE ================= -->
+        <section class="section-block reveal">
+
+            <div class="section-heading">
+                <p>CREATIVE MEDICAL LEARNING</p>
+                <h2>A premium workshop experience created for medical students.</h2>
+            </div>
+
+            <div class="event-gallery-grid">
+
+                <article class="event-gallery-card reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=90"
+                        alt="Medical education">
+                    <div>
+                        <h3>Visual Anatomy</h3>
+                        <p>
+                            Kidney anatomy will be explained through visual memory, structure mapping, labelled
+                            understanding, and simple creative breakdowns.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="event-gallery-card reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1758270705087-76e81a5117bd?auto=format&fit=crop&w=900&q=90"
+                        alt="Medical storytelling and teaching">
+                    <div>
+                        <h3>Medical Storytelling</h3>
+                        <p>
+                            Concepts will be explained like a story, helping students connect anatomy, function,
+                            blood supply, and clinical relevance.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="event-gallery-card reveal reveal-delay-3">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=90"
+                        alt="Medical technology">
+                    <div>
+                        <h3>AI Concept Visuals</h3>
+                        <p>
+                            Modern AI-style visuals will support learning by turning complex anatomy into clearer,
+                            more imaginative concept images.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="event-gallery-card reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=90"
+                        alt="Clinical learning">
+                    <div>
+                        <h3>Clinical Connection</h3>
+                        <p>
+                            Every creative explanation will be connected back to medicine, patient care, diagnosis,
+                            and practical understanding.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= HOW WE TRAIN ================= -->
+        <section class="section-block reveal">
 
             <div class="section-heading">
                 <p>HOW WE TRAIN</p>
                 <h2>Learning medicine should feel practical, active, and deeply engaging.</h2>
             </div>
 
-            <div class="story-grid">
+            <div class="impact-section">
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-1">
                     <h3>Hands-On Exposure</h3>
                     <p>
-                        Our workshops focus on active participation, demonstrations, guided practice,
-                        anatomy-based learning, and practical application of medical concepts.
+                        Our workshops focus on active participation, demonstrations, guided practice, anatomy-based
+                        learning, and practical application of medical concepts.
                     </p>
                 </div>
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-2">
                     <h3>Student-Led Learning</h3>
                     <p>
-                        AAUREX encourages students to become active contributors in teaching,
-                        discussion, coordination, and academic leadership.
+                        AAUREX encourages students to become active contributors in teaching, discussion, coordination,
+                        and academic leadership.
                     </p>
                 </div>
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-3">
                     <h3>Creative Understanding</h3>
                     <p>
-                        We integrate visual learning, diagrams, medical art, storytelling, and case-based
-                        explanations to make complex topics easier to remember.
+                        We integrate visual learning, diagrams, medical art, storytelling, and case-based explanations
+                        to make complex topics easier to remember.
                     </p>
                 </div>
 
@@ -109,7 +579,7 @@
 
 
         <!-- ================= WORKSHOP CATEGORIES ================= -->
-        <section class="section-block workshops-dark">
+        <section class="section-block reveal">
 
             <div class="section-heading">
                 <p>WORKSHOP CATEGORIES</p>
@@ -118,36 +588,56 @@
 
             <div class="feature-grid">
 
-                <article class="value-card">
-                    <h3>Anatomy & Dissection</h3>
-                    <p>
-                        Practical anatomy sessions focused on spatial understanding, organ systems,
-                        clinical correlation, and visual memory.
-                    </p>
+                <article class="feature-card reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=900&q=90"
+                        alt="Anatomy and dissection">
+                    <div>
+                        <h3>Anatomy & Dissection</h3>
+                        <p>
+                            Practical anatomy sessions focused on spatial understanding, organ systems, clinical
+                            correlation, and visual memory.
+                        </p>
+                        <a href="contact.html">Learn More →</a>
+                    </div>
                 </article>
 
-                <article class="value-card">
-                    <h3>Clinical Skills</h3>
-                    <p>
-                        Training sessions for basic clinical reasoning, examination concepts,
-                        case interpretation, and medical communication.
-                    </p>
+                <article class="feature-card reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=900&q=90"
+                        alt="Clinical skills">
+                    <div>
+                        <h3>Clinical Skills</h3>
+                        <p>
+                            Training sessions for basic clinical reasoning, examination concepts, case interpretation,
+                            and medical communication.
+                        </p>
+                        <a href="contact.html">Learn More →</a>
+                    </div>
                 </article>
 
-                <article class="value-card">
-                    <h3>Emergency Medicine</h3>
-                    <p>
-                        Introductory sessions covering emergency response concepts, first aid awareness,
-                        CPR basics, and urgent care thinking.
-                    </p>
+                <article class="feature-card reveal reveal-delay-3">
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=90"
+                        alt="Emergency medicine">
+                    <div>
+                        <h3>Emergency Medicine</h3>
+                        <p>
+                            Introductory sessions covering emergency response concepts, first aid awareness, CPR basics,
+                            and urgent care thinking.
+                        </p>
+                        <a href="contact.html">Learn More →</a>
+                    </div>
                 </article>
 
-                <article class="value-card">
-                    <h3>AI & Medical Learning</h3>
-                    <p>
-                        Workshops introducing how technology and AI can support studying, revision,
-                        research planning, and medical education.
-                    </p>
+                <article class="feature-card reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=90"
+                        alt="AI and medical learning">
+                    <div>
+                        <h3>AI & Medical Learning</h3>
+                        <p>
+                            Workshops introducing how technology and AI can support studying, revision, research
+                            planning, and medical education.
+                        </p>
+                        <a href="ai-tools.html">Explore AI Tools →</a>
+                    </div>
                 </article>
 
             </div>
@@ -156,27 +646,28 @@
 
 
 
-        <!-- ================= FEATURED WORKSHOP ================= -->
-        <section class="split-section">
+        <!-- ================= FEATURED TRAINING ================= -->
+        <section class="split-section reveal">
 
-            <div class="split-image">
-                <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85" alt="Medical workshop">
+            <div class="split-image reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1000&q=90"
+                    alt="Practical medical training">
             </div>
 
-            <div class="split-content">
+            <div class="split-content reveal reveal-delay-2">
 
                 <p class="section-label">FEATURED TRAINING</p>
 
                 <h2>Anatomy learning beyond textbooks.</h2>
 
                 <p>
-                    AAUREX aims to make anatomy more understandable through practical exposure,
-                    guided visualisation, diagrams, clinical links, and student-friendly explanations.
+                    AAUREX aims to make anatomy more understandable through practical exposure, guided visualisation,
+                    diagrams, clinical links, and student-friendly explanations.
                 </p>
 
                 <p>
-                    This approach helps learners connect structure with function and build confidence
-                    in foundational medical sciences.
+                    This approach helps learners connect structure with function and build confidence in foundational
+                    medical sciences.
                 </p>
 
                 <a href="contact.html" class="primary-btn">Register Interest</a>
@@ -188,36 +679,36 @@
 
 
         <!-- ================= WORKSHOP EXPERIENCE ================= -->
-        <section class="section-block">
+        <section class="section-block reveal">
 
             <div class="section-heading">
                 <p>WORKSHOP EXPERIENCE</p>
                 <h2>What participants can expect.</h2>
             </div>
 
-            <div class="story-grid">
+            <div class="impact-section">
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-1">
                     <h3>Interactive Sessions</h3>
                     <p>
-                        Participants engage through discussion, visual demonstrations, guided learning,
-                        and practical exercises.
+                        Participants engage through discussion, visual demonstrations, guided learning, and practical
+                        exercises.
                     </p>
                 </div>
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-2">
                     <h3>Certificates & Participation</h3>
                     <p>
-                        Future workshops can include certificates, participation records, and structured
-                        learning outcomes.
+                        Future workshops can include certificates, participation records, and structured learning
+                        outcomes.
                     </p>
                 </div>
 
-                <div class="story-card">
+                <div class="impact-card reveal reveal-delay-3">
                     <h3>Community Learning</h3>
                     <p>
-                        Workshops are designed to create a collaborative environment where students
-                        learn from mentors and each other.
+                        Workshops are designed to create a collaborative environment where students learn from mentors
+                        and each other.
                     </p>
                 </div>
 
@@ -228,12 +719,13 @@
 
 
         <!-- ================= FINAL CTA ================= -->
-        <section class="final-cta">
+        <section class="final-cta reveal">
 
             <p>JOIN AAUREX WORKSHOPS</p>
 
             <h2>
-                Build practical confidence through interactive medical training and creative learning.
+                Be part of AAUREX’s first practical workshop and experience medicine through anatomy, art, creativity,
+                memory, and clinical learning.
             </h2>
 
             <a href="contact.html" class="primary-btn">Enquire About Workshops</a>
@@ -257,6 +749,24 @@
         </p>
 
     </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    </script>
 
     <script src="js/script.js"></script>
 

@@ -7,11 +7,484 @@
     <title>Members | AAUREX</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .site-header {
+            animation: aaurexSlideDown 0.8s ease both;
+        }
+
+        .brand-mark {
+            animation: aaurexPulse 2.8s ease-in-out infinite;
+        }
+
+        .page-hero-content {
+            animation: aaurexFadeUp 1s ease both;
+        }
+
+        .member-section {
+            padding-top: 40px;
+        }
+
+        .president-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 46px;
+            align-items: center;
+            margin-top: 38px;
+        }
+
+        .president-photo {
+            position: relative;
+            min-height: 580px;
+            border-radius: 34px;
+            overflow: hidden;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .president-photo img {
+            width: 100%;
+            height: 100%;
+            min-height: 580px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .president-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .president-badge {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            padding: 16px 20px;
+            border-radius: 22px;
+            background: rgba(0, 0, 0, 0.58);
+            backdrop-filter: blur(12px);
+            color: #ffffff;
+        }
+
+        .president-badge span {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            opacity: 0.82;
+        }
+
+        .president-badge strong {
+            font-size: 1.15rem;
+        }
+
+        .president-card {
+            padding: 40px;
+            border-radius: 34px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            opacity: 0.7;
+            margin-bottom: 14px;
+        }
+
+        .president-card h3 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.08;
+            margin-bottom: 12px;
+        }
+
+        .president-role {
+            display: block;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+            opacity: 0.82;
+        }
+
+        .president-card p {
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .president-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .highlight-box {
+            padding: 18px;
+            border-radius: 20px;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.11);
+        }
+
+        .highlight-box strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .highlight-box span {
+            line-height: 1.55;
+            opacity: 0.78;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 35px;
+        }
+
+        .stat-card {
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-card h3 {
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+        }
+
+        .stat-card p {
+            line-height: 1.65;
+        }
+
+        .chief-grid,
+        .heads-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 35px;
+        }
+
+        .person-card {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .person-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .person-photo {
+            height: 290px;
+            overflow: hidden;
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .person-card:hover .person-photo img {
+            transform: scale(1.06);
+        }
+
+        .person-info {
+            padding: 26px;
+        }
+
+        .person-info span {
+            display: inline-block;
+            font-size: 0.76rem;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            font-weight: 800;
+            opacity: 0.65;
+            margin-bottom: 10px;
+        }
+
+        .person-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .person-info p {
+            line-height: 1.68;
+        }
+
+        .head-card {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .head-card .person-photo {
+            height: 290px;
+        }
+
+        .head-card .person-info {
+            padding: 26px;
+        }
+
+        .head-card .person-info span {
+            display: inline-block;
+            font-size: 0.76rem;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            font-weight: 800;
+            opacity: 0.65;
+            margin-bottom: 10px;
+        }
+
+        .head-card .person-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .head-card .person-info p {
+            line-height: 1.68;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .member-card {
+            border-radius: 18px;
+            background: #f7fbff;
+            border: 1px solid rgba(9, 47, 63, 0.08);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .member-card .person-photo {
+            height: 170px;
+        }
+
+        .member-card .person-info {
+            padding: 17px;
+        }
+
+        .member-card .person-info span {
+            padding: 6px 9px;
+            border-radius: 999px;
+            background: rgba(9, 47, 63, 0.08);
+            color: #092f3f;
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            opacity: 1;
+        }
+
+        .member-card .person-info h3 {
+            font-size: 0.98rem;
+            line-height: 1.2;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            color: #092f3f;
+        }
+
+        .member-card .person-info p {
+            font-size: 0.82rem;
+            line-height: 1.55;
+            color: #44545a;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.10);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        .primary-btn,
+        .header-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .primary-btn:hover,
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        @keyframes aaurexSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes aaurexPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 1150px) {
+            .president-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .chief-grid,
+            .heads-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .president-photo,
+            .president-photo img {
+                min-height: 520px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .chief-grid,
+            .heads-grid,
+            .members-grid,
+            .team-stats,
+            .president-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .president-card {
+                padding: 24px;
+                border-radius: 24px;
+            }
+
+            .president-photo,
+            .president-photo img {
+                min-height: 420px;
+                border-radius: 24px;
+            }
+
+            .president-badge {
+                left: 16px;
+                bottom: 16px;
+                padding: 13px 16px;
+                border-radius: 18px;
+            }
+
+            .person-photo,
+            .head-card .person-photo {
+                height: 250px;
+            }
+
+            .member-card .person-photo {
+                height: 190px;
+            }
+
+            .person-info {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
     <header class="site-header">
 
         <div class="brand">
@@ -38,189 +511,502 @@
 
     </header>
 
-
-
-    <!-- ================= PAGE HERO ================= -->
     <main>
 
         <section class="page-hero members-hero">
 
             <div class="page-hero-content">
 
-                <p class="hero-label">
-                    LEADERSHIP & CORE TEAM
-                </p>
+                <p class="hero-label">AAUREX MEMBERS</p>
 
                 <h2>
-                    The People Behind
+                    Meet the Team Behind
                     <span>AAUREX</span>
                 </h2>
 
                 <p class="hero-description">
-                    AAUREX is guided by a student-led leadership structure focused on medical education,
-                    research, conferences, workshops, technology, and collaborative academic growth.
+                    AAUREX is powered by a passionate student-led team working across education, marketing,
+                    operations, events, logistics, creative media, and leadership to build a stronger medical
+                    learning ecosystem.
                 </p>
 
             </div>
 
         </section>
 
-
-
-        <!-- ================= FOUNDER ================= -->
-        <section class="section-block">
+        <section class="section-block member-section reveal">
 
             <div class="section-heading">
-                <p>FOUNDER & DIGITAL PLATFORM</p>
-                <h2>Built with vision, structure, and purpose.</h2>
+                <p>FOUNDER & PRESIDENT</p>
+                <h2>The vision behind AAUREX.</h2>
             </div>
 
-            <div class="founder-card">
+            <div class="president-layout">
 
-                <div class="founder-photo">
-                    <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=85" alt="Founder placeholder">
+                <div class="president-photo reveal reveal-delay-1">
+                    <img src="assets/images/members/tarun-murali-mandadi.jpg" alt="Tarun Murali Mandadi">
+
+                    <div class="president-badge">
+                        <span>Founder & President</span>
+                        <strong>Tarun Murali Mandadi</strong>
+                    </div>
                 </div>
 
-                <div class="founder-info">
-                    <p class="section-label">FOUNDER / PRESIDENT</p>
+                <div class="president-card reveal reveal-delay-2">
+
+                    <span class="role-label">AAUREX Founder & President</span>
+
                     <h3>Tarun Murali Mandadi</h3>
+
+                    <span class="president-role">Founder, President & Lead Visionary of AAUREX</span>
+
                     <p>
-                        Founder and developer of the AAUREX digital platform, created to support medical education,
-                        research, conferences, workshops, and innovation through a structured ecosystem.
+                        Tarun Murali Mandadi is the President and Founder of AAUREX, leading the organisation with a
+                        vision to transform medical learning into something more practical, creative, research-oriented,
+                        and student-driven. He founded AAUREX to create a strong platform where medical students can
+                        learn beyond textbooks, participate in workshops, explore research, attend academic events, and
+                        build confidence as future healthcare professionals.
                     </p>
+
+                    <p>
+                        His role includes guiding the overall direction of AAUREX, building the organisation’s digital
+                        presence, planning academic initiatives, coordinating team structure, developing workshop ideas,
+                        and creating systems that allow students to grow through leadership, teamwork, communication,
+                        and innovation.
+                    </p>
+
+                    <p>
+                        Through AAUREX, Tarun aims to connect medical education with creativity, technology, research,
+                        and practical exposure. His focus is to build a professional student-led medical ecosystem where
+                        members feel inspired to contribute, learn, lead, and represent excellence.
+                    </p>
+
+                    <div class="president-highlights">
+
+                        <div class="highlight-box">
+                            <strong>Vision</strong>
+                            <span>Making medical learning practical, creative, and accessible.</span>
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong>Leadership</strong>
+                            <span>Guiding teams, events, research, workshops, and digital growth.</span>
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong>Innovation</strong>
+                            <span>Combining medicine with creativity, technology, and AI learning tools.</span>
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong>Mission</strong>
+                            <span>Building a strong student-led medical organisation with purpose.</span>
+                        </div>
+
+                    </div>
+
+                    <a href="contact.html" class="primary-btn">Connect With AAUREX</a>
+
                 </div>
 
             </div>
 
         </section>
 
-
-
-        <!-- ================= MEMBERS GRID ================= -->
-        <section class="section-block members-dark">
+        <section class="section-block reveal">
 
             <div class="section-heading">
-                <p>CORE LEADERSHIP</p>
-                <h2>AAUREX Chiefs & Heads</h2>
+                <p>TEAM STRUCTURE</p>
+                <h2>A clear hierarchy built for coordination, creativity, and execution.</h2>
+            </div>
+
+            <div class="team-stats">
+
+                <div class="stat-card reveal reveal-delay-1">
+                    <h3>01</h3>
+                    <p>Founder & President leading the vision and direction of AAUREX.</p>
+                </div>
+
+                <div class="stat-card reveal reveal-delay-2">
+                    <h3>03</h3>
+                    <p>Chiefs managing Marketing, Operations, and Education.</p>
+                </div>
+
+                <div class="stat-card reveal reveal-delay-3">
+                    <h3>07</h3>
+                    <p>Department heads leading education, creative, logistics, HR, and events.</p>
+                </div>
+
+                <div class="stat-card reveal reveal-delay-1">
+                    <h3>15</h3>
+                    <p>Active members supporting events, education, marketing, and teamwork.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section-block reveal">
+
+            <div class="section-heading">
+                <p>CHIEFS OF DEPARTMENTS</p>
+                <h2>The three leaders supporting the organisation at the highest department level.</h2>
+            </div>
+
+            <div class="chief-grid">
+
+                <article class="person-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/afsheen.jpg" alt="Afsheen">
+                    </div>
+                    <div class="person-info">
+                        <span>Chief of Marketing</span>
+                        <h3>Afsheen</h3>
+                        <p>
+                            Afsheen leads the marketing and social media presence of AAUREX. She manages promotional
+                            planning, brand visibility, online engagement, announcements, and helps ensure that AAUREX
+                            reaches students with a clear and professional voice.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/pavithran-kavitha-santhakumar.jpg" alt="Pavithran Kavitha Santhakumar">
+                    </div>
+                    <div class="person-info">
+                        <span>Chief of Operations</span>
+                        <h3>Pavithran Kavitha Santhakumar</h3>
+                        <p>
+                            Pavithran manages overall operations by monitoring departments, coordinating internal work,
+                            supporting team discipline, and making sure every division functions smoothly. His role is
+                            important in keeping AAUREX organised, active, and efficient.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/sana-mohammed-moidu-koolikkad.jpg" alt="Sana Mohammed Moidu Koolikkad">
+                    </div>
+                    <div class="person-info">
+                        <span>Chief of Education</span>
+                        <h3>Sana Mohammed Moidu Koolikkad</h3>
+                        <p>
+                            Sana leads the educational direction of AAUREX by supporting learning content, academic
+                            quality, student-friendly explanations, and knowledge-based initiatives. She helps strengthen
+                            the organisation’s educational purpose and learning impact.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="section-block reveal">
+
+            <div class="section-heading">
+                <p>HEADS OF DEPARTMENTS</p>
+                <h2>Department heads guiding the core functions of AAUREX.</h2>
+            </div>
+
+            <div class="heads-grid">
+
+                <article class="person-card head-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/himavanth-k.jpg" alt="Himavanth K">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Head</span>
+                        <h3>Himavanth K</h3>
+                        <p>
+                            Himavanth supports the education team by helping organise academic content, learning ideas,
+                            and student-focused resources that make medical topics easier to understand.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/khushi-giri.jpg" alt="Khushi Giri">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Head</span>
+                        <h3>Khushi Giri</h3>
+                        <p>
+                            Khushi is passionate about creating impactful learning experiences that inspire growth,
+                            innovation, and collaboration within the AAUREX education team.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/sai-revathi-busanagari.jpg" alt="Sai Revathi Busanagari">
+                    </div>
+                    <div class="person-info">
+                        <span>Creative Head</span>
+                        <h3>Sai Revathi Busanagari</h3>
+                        <p>
+                            Sai Revathi contributes to the creative direction of AAUREX through content ideas, visual
+                            planning, creative presentation, and medical storytelling.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/hafsa-nazim.jpg" alt="Hafsa Nazim">
+                    </div>
+                    <div class="person-info">
+                        <span>Creative Head</span>
+                        <h3>Hafsa Nazim</h3>
+                        <p>
+                            Hafsa plays a major role in editing and creative media. She supports visual content,
+                            educational reels, design improvement, and polished presentation of AAUREX projects.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/guruprasad-yaliyur-srirangappa.jpg" alt="Guruprasad Yaliyur Srirangappa">
+                    </div>
+                    <div class="person-info">
+                        <span>Logistics Head</span>
+                        <h3>Guruprasad Yaliyur Srirangappa</h3>
+                        <p>
+                            Guruprasad manages logistics by supporting arrangements, coordination, materials, movement,
+                            and practical planning needed for smooth AAUREX events and workshops.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/sybil-john-fernandes.jpg" alt="Sybil John Fernandes">
+                    </div>
+                    <div class="person-info">
+                        <span>Head of HR</span>
+                        <h3>Sybil John Fernandes</h3>
+                        <p>
+                            Sybil supports the team as Head of HR by helping with member coordination, communication,
+                            responsibility management, team discipline, and maintaining a positive working environment.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="person-card head-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/rifa-abdul-kader.jpg" alt="Rifa Abdul Kader">
+                    </div>
+                    <div class="person-info">
+                        <span>Head of Events</span>
+                        <h3>Rifa Abdul Kader</h3>
+                        <p>
+                            Rifa plans and supports event-day execution by organising schedules, coordination,
+                            participant flow, and the details needed to make AAUREX events successful.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="section-block reveal">
+
+            <div class="section-heading">
+                <p>AAUREX MEMBERS</p>
+                <h2>The active members supporting education, events, marketing, and teamwork.</h2>
             </div>
 
             <div class="members-grid">
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=85" alt="Academic Head">
-                    <h3>Afsheen Banu</h3>
-                    <p>Marketing Chief</p>
+                <article class="person-card member-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/baloul.jpg" alt="Baloul">
+                    </div>
+                    <div class="person-info">
+                        <span>Event Member</span>
+                        <h3>Baloul</h3>
+                        <p>Baloul supports the event team by helping with planning, coordination, and preparation.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=700&q=85" alt="Research Head">
-                    <h3>Pavithran Kavitha Santhakumar</h3>
-                    <p>Operations Chief</p>
+                <article class="person-card member-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/namith.jpg" alt="Namith">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Namith</h3>
+                        <p>Namith supports learning content, academic ideas, and student-friendly explanations.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=700&q=85" alt="Workshop Coordinator">
-                    <h3>Khushi Giri</h3>
-                    <p>Educational Head</p>
+                <article class="person-card member-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/santhosh.jpg" alt="Santhosh">
+                    </div>
+                    <div class="person-info">
+                        <span>Events Member</span>
+                        <h3>Santhosh</h3>
+                        <p>Santhosh supports event planning, coordination, communication, and execution.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=700&q=85" alt="Conference Lead">
-                    <h3>Himavanth Krishnamurthy</h3>
-                    <p>Educational Head</p>
+                <article class="person-card member-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/tamilarasan-krishnamurthy.jpg" alt="Tamilarasan Krishnamurthy">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Tamilarasan Krishnamurthy</h3>
+                        <p>Tamilarasan supports academic contribution, topic development, and learning resources.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=700&q=85" alt="AI and Technology Head">
-                    <h3>Guruprasad YS</h3>
-                    <p>Logistics Head</p>
+                <article class="person-card member-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/ambika-yadav.jpg" alt="Ambika Yadav">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Ambika Yadav</h3>
+                        <p>Ambika helps develop learning material, academic support, and student understanding.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=85" alt="Student Affairs Head">
-                    <h3>team member</h3>
-                    <p>team member</p>
+                <article class="person-card member-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/reethika-dhanasekaran.jpg" alt="Reethika Dhanasekaran">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Reethika Dhanasekaran</h3>
+                        <p>Reethika supports medical learning content, academic ideas, and team projects.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=85" alt="Medical Education Lead">
-                    <h3>Sybil</h3>
-                    <p>Human Resources</p>
+                <article class="person-card member-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/bavadharanee.jpg" alt="Bavadharanee">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Bavadharanee</h3>
+                        <p>Bavadharanee brings confidence, clarity, speaking ability, and strong communication.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=700&q=85" alt="Events Coordinator">
-                    <h3>Rifa Abdul Kader</h3>
-                    <p>Events Coordinator</p>
+                <article class="person-card member-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/rohith-sivakumar.jpg" alt="Rohith Sivakumar">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Rohith Sivakumar</h3>
+                        <p>Rohith supports academic contribution, medical content, and research-minded learning.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=85" alt="Communications Head">
-                    <h3>Balool</h3>
-                    <p>Communications Member</p>
+                <article class="person-card member-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/riya-feroon.jpg" alt="Riya Feroon">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Riya Feroon</h3>
+                        <p>Riya supports educational planning, learning resources, and collaborative academic work.</p>
+                    </div>
                 </article>
 
-                <article class="member-card">
-                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=700&q=85" alt="Operations Head">
-                    <h3>Sana</h3>
-                    <p>Educational member</p>
+                <article class="person-card member-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/ashna-naik.jpg" alt="Ashna Naik">
+                    </div>
+                    <div class="person-info">
+                        <span>Educational Member</span>
+                        <h3>Ashna Naik</h3>
+                        <p>Ashna helps with academic content, topic organisation, and learning material.</p>
+                    </div>
+                </article>
+
+                <article class="person-card member-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/ashika-nisthar.jpg" alt="Ashika Nisthar">
+                    </div>
+                    <div class="person-info">
+                        <span>Marketing Member</span>
+                        <h3>Ashika Nisthar</h3>
+                        <p>Ashika supports polished visuals, editing, social media content, and brand presentation.</p>
+                    </div>
+                </article>
+
+                <article class="person-card member-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/afsiya.jpg" alt="Afsiya">
+                    </div>
+                    <div class="person-info">
+                        <span>Event Member</span>
+                        <h3>Afsiya</h3>
+                        <p>Afsiya supports event planning, coordination, preparation, and smooth execution.</p>
+                    </div>
+                </article>
+
+                <article class="person-card member-card reveal reveal-delay-1">
+                    <div class="person-photo">
+                        <img src="assets/images/members/raga-nandini-kavitha-santhakumar.jpg" alt="Raga Nandini Kavitha Santhakumar">
+                    </div>
+                    <div class="person-info">
+                        <span>Event Member</span>
+                        <h3>Raga Nandini Kavitha Santhakumar</h3>
+                        <p>Raga supports planning, coordination, communication, and teamwork during programmes.</p>
+                    </div>
+                </article>
+
+                <article class="person-card member-card reveal reveal-delay-2">
+                    <div class="person-photo">
+                        <img src="assets/images/members/deeptha-ravindran.jpg" alt="Deeptha Ravindran">
+                    </div>
+                    <div class="person-info">
+                        <span>Events Member</span>
+                        <h3>Deeptha Ravindran</h3>
+                        <p>Deeptha supports planning, organisation, preparation, and event attention to detail.</p>
+                    </div>
+                </article>
+
+                <article class="person-card member-card reveal reveal-delay-3">
+                    <div class="person-photo">
+                        <img src="assets/images/members/rifa-fathima.jpg" alt="Rifa Fathima">
+                    </div>
+                    <div class="person-info">
+                        <span>Event Member</span>
+                        <h3>Rifa Fathima</h3>
+                        <p>Rifa Fathima supports teamwork, group communication, and event coordination.</p>
+                    </div>
                 </article>
 
             </div>
 
         </section>
 
+        <section class="final-cta reveal">
 
-
-        <!-- ================= TEAM PHILOSOPHY ================= -->
-        <section class="split-section">
-
-            <div class="split-image">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=85" alt="Team collaboration">
-            </div>
-
-            <div class="split-content">
-
-                <p class="section-label">TEAM CULTURE</p>
-
-                <h2>A student-led structure built for collaboration.</h2>
-
-                <p>
-                    The AAUREX leadership model is designed around shared responsibility, creativity,
-                    professionalism, and academic ambition.
-                </p>
-
-                <p>
-                    Each head contributes to a specific area of the organisation, helping AAUREX grow as a
-                    platform for education, research, events, workshops, and medical innovation.
-                </p>
-
-                <a href="contact.html" class="primary-btn">Join the Community</a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= FINAL CTA ================= -->
-        <section class="final-cta">
-
-            <p>BECOME A MEMBER</p>
+            <p>JOIN THE AAUREX TEAM</p>
 
             <h2>
-                Join AAUREX and contribute to a growing medical education and research community.
+                A team built on leadership, education, creativity, planning, communication, and medical excellence.
             </h2>
 
-            <a href="contact.html" class="primary-btn">Apply / Enquire</a>
+            <a href="contact.html" class="primary-btn">Apply to Join AAUREX</a>
 
         </section>
 
     </main>
 
-
-
-    <!-- ================= FOOTER ================= -->
     <footer class="footer">
 
         <div>
@@ -233,6 +1019,24 @@
         </p>
 
     </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    </script>
 
     <script src="js/script.js"></script>
 
