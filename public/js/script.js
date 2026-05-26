@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ======================================================
 
     const revealItems = document.querySelectorAll(
-        ".impact-card, .feature-card, .split-image, .split-content, .final-cta, .story-card, .value-card, .member-card, .founder-card, .social-card"
+        ".impact-card, .feature-card, .split-image, .split-content, .final-cta, .story-card, .value-card, .member-card, .founder-card, .social-card, .reveal"
     );
 
     revealItems.forEach(item => {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // BUTTON HOVER FEEDBACK
     // ======================================================
 
-    const buttons = document.querySelectorAll(".primary-btn, .secondary-btn, .header-btn");
+    const buttons = document.querySelectorAll(".primary-btn, .secondary-btn, .header-btn, .btn-primary, .btn-secondary");
 
     buttons.forEach(button => {
         button.addEventListener("mouseenter", () => {
@@ -129,23 +129,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contactForm");
     const contactStatus = document.getElementById("contactStatus");
 
-    if (contactForm && contactStatus) {
+    if (contactForm) {
         contactForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const role = document.getElementById("role").value;
-            const type = document.getElementById("type").value;
-            const subject = document.getElementById("subject").value.trim();
-            const message = document.getElementById("message").value.trim();
+            const submitButton = contactForm.querySelector("button[type='submit']");
+            const originalButtonText = submitButton ? submitButton.innerText : "Send Message";
 
-            if (!name || !email || !role || !type || !subject || !message) {
-                contactStatus.innerText = "Please complete all required fields.";
-                return;
+            if (submitButton) {
+                submitButton.innerText = "Sending...";
+                submitButton.disabled = true;
             }
 
-            contactStatus.innerText = "Sending your message...";
+            if (contactStatus) {
+                contactStatus.innerText = "Sending your message...";
+            }
+
+            const name = document.getElementById("name")?.value.trim() || "";
+            const email = document.getElementById("email")?.value.trim() || "";
+            const phone = document.getElementById("phone")?.value.trim() || "";
+            const role = document.getElementById("role")?.value || "";
+            const type = document.getElementById("type")?.value || "";
+            const enquiry = document.getElementById("enquiry")?.value || type;
+            const subject = document.getElementById("subject")?.value.trim() || "";
+            const message = document.getElementById("message")?.value.trim() || "";
+
+            if (!name || !email || !subject || !message) {
+                if (contactStatus) {
+                    contactStatus.innerText = "Please complete all required fields.";
+                } else {
+                    alert("Please complete all required fields.");
+                }
+
+                if (submitButton) {
+                    submitButton.innerText = originalButtonText;
+                    submitButton.disabled = false;
+                }
+
+                return;
+            }
 
             try {
                 const response = await fetch(`${BACKEND_URL}/api/contact`, {
@@ -154,32 +176,57 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        name,
-                        email,
-                        role,
-                        type,
-                        subject,
-                        message
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        role: role,
+                        type: type,
+                        enquiry: enquiry,
+                        subject: subject,
+                        message: message
                     })
                 });
 
-                const data = await response.json();
+                let data = {};
 
-                if (data.success) {
-                    contactStatus.innerText =
-                        "Message sent successfully. Please check your email for confirmation.";
+                try {
+                    data = await response.json();
+                } catch (jsonError) {
+                    data = {};
+                }
+
+                if (response.ok && data.success) {
+                    if (contactStatus) {
+                        contactStatus.innerText =
+                            "Message sent successfully. Please check your email for confirmation.";
+                    } else {
+                        alert("Message sent successfully. Please check your email for confirmation.");
+                    }
 
                     contactForm.reset();
                 } else {
-                    contactStatus.innerText =
-                        data.message || "Message could not be sent. Please try again.";
+                    if (contactStatus) {
+                        contactStatus.innerText =
+                            data.message || "Message could not be sent. Please try again.";
+                    } else {
+                        alert(data.message || "Message could not be sent. Please try again.");
+                    }
                 }
 
             } catch (error) {
                 console.error("Contact Form Error:", error);
 
-                contactStatus.innerText =
-                    "Server not responding. Please make sure the Render backend is live.";
+                if (contactStatus) {
+                    contactStatus.innerText =
+                        "Server not responding. Please make sure the Render backend is live.";
+                } else {
+                    alert("Server not responding. Please make sure the Render backend is live.");
+                }
+            }
+
+            if (submitButton) {
+                submitButton.innerText = originalButtonText;
+                submitButton.disabled = false;
             }
         });
     }
@@ -260,9 +307,15 @@ async function sendAIMessage() {
             })
         });
 
-        const data = await response.json();
+        let data = {};
 
-        if (data.success) {
+        try {
+            data = await response.json();
+        } catch (jsonError) {
+            data = {};
+        }
+
+        if (response.ok && data.success) {
             typingBubble.innerHTML = `
                 <strong>AAUREX Assistant</strong>
                 <p>${data.reply}</p>
