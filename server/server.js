@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 require("dotenv").config();
 
 const app = express();
@@ -10,12 +10,12 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-// Home test route
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 app.get("/", (req, res) => {
     res.send("AAUREX backend is running successfully.");
 });
 
-// Contact email route
 app.post("/api/contact", async (req, res) => {
     try {
         const {
@@ -23,6 +23,7 @@ app.post("/api/contact", async (req, res) => {
             email,
             phone,
             role,
+            type,
             enquiry,
             subject,
             message
@@ -35,26 +36,18 @@ app.post("/api/contact", async (req, res) => {
             });
         }
 
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-            console.error("EMAIL_USER or EMAIL_PASS missing in environment variables");
+        if (!process.env.RESEND_API_KEY) {
             return res.status(500).json({
                 success: false,
-                message: "Email configuration missing."
+                message: "Email service is not configured."
             });
         }
 
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
+        const enquiryType = enquiry || type || "General enquiry";
 
-        // Email to AAUREX
-        const adminMailOptions = {
-            from: `"AAUREX Website" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
+        await resend.emails.send({
+            from: "AAUREX Website <onboarding@resend.dev>",
+            to: "aaurex.info@gmail.com",
             replyTo: email,
             subject: `New AAUREX Contact Form: ${subject}`,
             html: `
@@ -65,7 +58,7 @@ app.post("/api/contact", async (req, res) => {
                     <p><strong>Email:</strong> ${email}</p>
                     <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
                     <p><strong>Role:</strong> ${role || "Not provided"}</p>
-                    <p><strong>Enquiry Type:</strong> ${enquiry || "Not provided"}</p>
+                    <p><strong>Enquiry Type:</strong> ${enquiryType}</p>
                     <p><strong>Subject:</strong> ${subject}</p>
 
                     <hr>
@@ -74,11 +67,10 @@ app.post("/api/contact", async (req, res) => {
                     <p>${message}</p>
                 </div>
             `
-        };
+        });
 
-        // Auto reply to sender
-        const autoReplyOptions = {
-            from: `"AAUREX" <${process.env.EMAIL_USER}>`,
+        await resend.emails.send({
+            from: "AAUREX <onboarding@resend.dev>",
             to: email,
             subject: "Thank you for contacting AAUREX",
             html: `
@@ -103,12 +95,7 @@ app.post("/api/contact", async (req, res) => {
                     </p>
                 </div>
             `
-        };
-
-        await transporter.sendMail(adminMailOptions);
-        await transporter.sendMail(autoReplyOptions);
-
-        console.log("Contact email sent successfully");
+        });
 
         return res.status(200).json({
             success: true,
@@ -125,7 +112,6 @@ app.post("/api/contact", async (req, res) => {
     }
 });
 
-// AI route placeholder / safe response if needed
 app.post("/api/ai-chat", async (req, res) => {
     try {
         const { message } = req.body;
