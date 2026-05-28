@@ -7,6 +7,67 @@
     <title>Contact AAUREX | Research, Education & Excellence</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-link-panel {
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            padding: 34px;
+            display: grid;
+            gap: 24px;
+        }
+
+        .form-link-card {
+            padding: 28px;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.052);
+            border: 1px solid var(--glass-border);
+            transition: 0.32s ease;
+        }
+
+        .form-link-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+        }
+
+        .form-link-card h3 {
+            color: var(--champagne);
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+
+        .form-link-card p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .form-link-card .primary-btn,
+        .form-link-card .secondary-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .recruit-highlight {
+            color: var(--champagne);
+            font-weight: 700;
+        }
+
+        @media (max-width: 620px) {
+            .form-link-panel {
+                padding: 24px;
+                border-radius: 24px;
+            }
+
+            .form-link-card {
+                padding: 24px;
+                border-radius: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -65,7 +126,7 @@
 
 
 
-        <!-- ================= CONTACT FORM SECTION ================= -->
+        <!-- ================= GOOGLE FORM SECTION ================= -->
         <section class="contact-workspace-section">
 
             <div class="contact-workspace">
@@ -91,60 +152,51 @@
                         <span>Conference Enquiries</span>
                     </div>
 
-                    <br>
-
-                    <p>
-                        Official Email:
-                        <strong style="color: var(--champagne);">aaurex.info@gmail.com</strong>
-                    </p>
-
                 </div>
 
 
 
-                <!-- CONTACT FORM -->
-                <form class="contact-form" id="aaurexContactForm">
+                <!-- GOOGLE FORM CARDS -->
+                <div class="form-link-panel">
 
-                    <div class="form-row">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <div class="form-link-card">
+                        <h3>General Enquiries</h3>
+
+                        <p>
+                            Have questions about AAUREX, workshops, conferences, research opportunities,
+                            collaborations, or participation? Fill out our enquiry form and the AAUREX team
+                            will review your message.
+                        </p>
+
+                        <a href="https://forms.gle/4W8D1ZaFGBRB435e6" target="_blank" class="primary-btn">
+                            Submit General Enquiry
+                        </a>
                     </div>
 
-                    <div class="form-row">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+
+                    <div class="form-link-card">
+                        <h3>Join the Marketing & Social Media Team</h3>
+
+                        <p>
+                            AAUREX is recruiting creative, energetic, and responsible members for our
+                            <span class="recruit-highlight">Marketing and Social Media Team</span>.
+                            This is for students who love content creation, Instagram growth, editing,
+                            branding, promotion, communication, and building a strong online presence for
+                            a growing medical organisation.
+                        </p>
+
+                        <p>
+                            If you want to be part of the team that makes AAUREX more visible, engaging,
+                            professional, and exciting online, this is your chance to join us.
+                        </p>
+
+                        <a href="https://forms.gle/C2E7VLS5dbj5JxcS9" target="_blank" class="secondary-btn">
+                            Apply for Marketing Team
+                        </a>
                     </div>
 
-                    <div class="form-row">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="interest">Reason for Contact</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select an option</option>
-                            <option value="Join AAUREX Team">Join AAUREX Team</option>
-                            <option value="Workshop Enquiry">Workshop Enquiry</option>
-                            <option value="Conference Enquiry">Conference Enquiry</option>
-                            <option value="Research Collaboration">Research Collaboration</option>
-                            <option value="Institution Collaboration">Institution Collaboration</option>
-                            <option value="General Enquiry">General Enquiry</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="contact-submit" id="submitBtn">
-                        Send Message
-                    </button>
-
-                    <p class="contact-status" id="contactStatus"></p>
-
-                </form>
+                </div>
 
             </div>
 
@@ -171,10 +223,10 @@
                 </div>
 
                 <div class="story-card">
-                    <h3>Google Form Updates</h3>
+                    <h3>Marketing & Social Media</h3>
                     <p>
-                        When recruitment is open, official Google Form links will be shared through AAUREX
-                        announcements, social media, and internal communication channels.
+                        We are currently welcoming students interested in marketing, content planning,
+                        social media management, editing, promotion, and creative communication.
                     </p>
                 </div>
 
@@ -202,14 +254,19 @@
 
             <div class="social-grid">
 
-                <a href="https://www.instagram.com/aaurex.in" target="_blank" class="social-card">
+                <a href="https://www.instagram.com/aaurex.official?igsh=MXJ3ZXViMWM1MTl2ZA%3D%3D&utm_source=qr" target="_blank" class="social-card">
                     <h3>Instagram</h3>
-                    <p>Follow AAUREX for announcements, reels, events, medical learning content, and updates.</p>
+                    <p>
+                        Follow AAUREX on Instagram for announcements, reels, events, medical learning content,
+                        and updates.
+                        <br><br>
+                        <strong style="color: var(--champagne);">@aaurex.offical</strong>
+                    </p>
                 </a>
 
-                <a href="mailto:aaurex.info@gmail.com" class="social-card">
-                    <h3>Email</h3>
-                    <p>Contact us directly through our official AAUREX email for enquiries and collaboration.</p>
+                <a href="https://forms.gle/4W8D1ZaFGBRB435e6" target="_blank" class="social-card">
+                    <h3>General Enquiry</h3>
+                    <p>Submit your questions about AAUREX, collaborations, workshops, conferences, and participation.</p>
                 </a>
 
                 <a href="members.html" class="social-card">
@@ -217,9 +274,9 @@
                     <p>Meet the AAUREX team working behind education, research, events, and creative content.</p>
                 </a>
 
-                <a href="workshops.html" class="social-card">
-                    <h3>Workshops</h3>
-                    <p>Explore AAUREX workshops, hands-on sessions, and practical medical learning experiences.</p>
+                <a href="https://forms.gle/C2E7VLS5dbj5JxcS9" target="_blank" class="social-card">
+                    <h3>Recruitment</h3>
+                    <p>Apply to join the AAUREX Marketing and Social Media Team and help grow the organisation.</p>
                 </a>
 
             </div>
@@ -237,7 +294,9 @@
                 Connect with AAUREX and become part of a growing medical learning community.
             </h2>
 
-            <a href="mailto:aaurex.info@gmail.com" class="primary-btn">Email AAUREX</a>
+            <a href="https://forms.gle/4W8D1ZaFGBRB435e6" target="_blank" class="primary-btn">
+                Submit Enquiry
+            </a>
 
         </section>
 
@@ -258,56 +317,6 @@
         </p>
 
     </footer>
-
-
-
-    <!-- ================= CONTACT FORM SCRIPT ================= -->
-    <script>
-        const contactForm = document.getElementById("aaurexContactForm");
-        const contactStatus = document.getElementById("contactStatus");
-        const submitBtn = document.getElementById("submitBtn");
-
-        contactForm.addEventListener("submit", async function (event) {
-            event.preventDefault();
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Sending...";
-            contactStatus.textContent = "Please wait, your message is being sent.";
-
-            const formData = {
-                name: document.getElementById("name").value.trim(),
-                email: document.getElementById("email").value.trim(),
-                phone: document.getElementById("phone").value.trim(),
-                interest: document.getElementById("interest").value,
-                message: document.getElementById("message").value.trim()
-            };
-
-            try {
-                const response = await fetch("https://aaurex.onrender.com/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    contactStatus.textContent = "Message sent successfully. AAUREX will contact you soon.";
-                    contactForm.reset();
-                } else {
-                    contactStatus.textContent = result.message || "Something went wrong. Please try again.";
-                }
-
-            } catch (error) {
-                contactStatus.textContent = "Unable to send message. Please try again later.";
-            }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Send Message";
-        });
-    </script>
 
     <script src="js/script.js"></script>
 
