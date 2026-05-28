@@ -1,271 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact AAUREX | Enquiries & Recruitment</title>
+    <title>Contact AAUREX | Research, Education & Excellence</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <meta name="description" content="Contact AAUREX for enquiries, collaborations, workshops, conferences and marketing team recruitment.">
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
     <header class="site-header">
-        <div class="container header-container">
-            <a class='logo' href='/'>
-                <span>AAUREX</span>
-            </a>
 
-            <nav class="navbar">
-                <a href='/'>Home</a>
-                <a href='/about'>About</a>
-                <a href='/research'>Research</a>
-                <a href='/workshops'>Workshops</a>
-                <a href='/conferences'>Conferences</a>
-                <a href='/members'>Members</a>
-                <a href='/ai-tools'>AI Tools</a>
-                <a class='active' href='/contact'>Contact</a>
-            </nav>
+        <div class="brand">
+            <div class="brand-mark">⚕</div>
 
-            <a class='header-btn' href='/contact'>Connect With Us</a>
+            <div>
+                <h1>AAUREX</h1>
+                <p>Research • Education • Excellence</p>
+            </div>
         </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="conferences.html">Conferences</a>
+            <a href="members.html">Members</a>
+            <a href="ai-tools.html">AI Tools</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="header-btn">Join AAUREX</a>
+
     </header>
 
 
+
+    <!-- ================= CONTACT HERO ================= -->
     <main>
 
-        <!-- CONTACT HERO -->
-        <section class="page-hero">
-            <div class="container page-hero-content reveal">
-                <div class="eyebrow">Contact • Enquiries • Recruitment</div>
+        <section class="page-hero contact-hero">
 
-                <h1>
-                    Connect With
-                    <span>AAUREX.</span>
-                </h1>
+            <div class="page-hero-content">
 
-                <p>
-                    Reach out to AAUREX for collaborations, workshops, conferences,
-                    research-related communication, university proposals, student involvement
-                    and recruitment opportunities.
+                <p class="hero-label">CONNECT WITH AAUREX</p>
+
+                <h2>
+                    Join, Collaborate or
+                    <span>Reach Out to AAUREX</span>
+                </h2>
+
+                <p class="hero-description">
+                    Whether you want to join our team, collaborate with AAUREX, enquire about workshops,
+                    participate in conferences, or connect with us for academic opportunities, you can reach us here.
                 </p>
+
             </div>
+
         </section>
 
 
-        <!-- CONTACT OPTIONS -->
-        <section class="section">
-            <div class="container">
 
-                <div class="section-heading reveal">
-                    <div class="section-label">Choose Your Purpose</div>
-                    <h2>Use the right form so our team can respond properly.</h2>
+        <!-- ================= CONTACT FORM SECTION ================= -->
+        <section class="contact-workspace-section">
+
+            <div class="contact-workspace">
+
+                <!-- LEFT INFO PANEL -->
+                <div class="contact-info-panel">
+
+                    <p class="section-label">AAUREX CONTACT</p>
+
+                    <h2>Let’s Build Something Meaningful Together</h2>
+
                     <p>
-                        We have separated general enquiries and marketing team recruitment
-                        to keep communication organized and professional.
+                        AAUREX welcomes students, volunteers, institutions, collaborators, speakers,
+                        and medical education enthusiasts who want to be part of a growing student-led
+                        medical organisation.
                     </p>
-                </div>
 
-                <div class="feature-grid">
+                    <div class="contact-mini-list">
+                        <span>Medical Education</span>
+                        <span>Workshops & Events</span>
+                        <span>Research Collaboration</span>
+                        <span>Team Recruitment</span>
+                        <span>Conference Enquiries</span>
+                    </div>
 
-                    <!-- GENERAL ENQUIRY -->
-                    <article class="feature-card reveal">
-                        <div class="feature-icon">✉</div>
+                    <br>
 
-                        <h3>General Enquiry</h3>
-
-                        <p>
-                            Use this form for questions related to AAUREX workshops,
-                            conferences, collaborations, university communication,
-                            research activities, membership, proposals and general information.
-                        </p>
-
-                        <a 
-                            href="PASTE_ENQUIRY_GOOGLE_FORM_LINK_HERE" 
-                            target="_blank" 
-                            class="btn-primary"
-                        >
-                            Open Enquiry Form
-                        </a>
-                    </article>
-
-
-                    <!-- MARKETING TEAM RECRUITMENT -->
-                    <article class="feature-card reveal">
-                        <div class="feature-icon">✦</div>
-
-                        <h3>Marketing Team Recruitment</h3>
-
-                        <p>
-                            AAUREX is currently recruiting motivated and creative individuals
-                            for the Marketing Team. This team will support social media promotion,
-                            event announcements, outreach, university communication, poster campaigns,
-                            brand growth and public engagement.
-                        </p>
-
-                        <a 
-                            href="https://forms.gle/C2E7VLS5dbj5JxcS9" 
-                            target="_blank" 
-                            class="btn-primary"
-                        >
-                            Apply for Marketing Team
-                        </a>
-                    </article>
+                    <p>
+                        Official Email:
+                        <strong style="color: var(--champagne);">aaurex.info@gmail.com</strong>
+                    </p>
 
                 </div>
+
+
+
+                <!-- CONTACT FORM -->
+                <form class="contact-form" id="aaurexContactForm">
+
+                    <div class="form-row">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="interest">Reason for Contact</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option</option>
+                            <option value="Join AAUREX Team">Join AAUREX Team</option>
+                            <option value="Workshop Enquiry">Workshop Enquiry</option>
+                            <option value="Conference Enquiry">Conference Enquiry</option>
+                            <option value="Research Collaboration">Research Collaboration</option>
+                            <option value="Institution Collaboration">Institution Collaboration</option>
+                            <option value="General Enquiry">General Enquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-submit" id="submitBtn">
+                        Send Message
+                    </button>
+
+                    <p class="contact-status" id="contactStatus"></p>
+
+                </form>
 
             </div>
+
         </section>
 
 
-        <!-- SOCIAL SECTION -->
-        <section class="section dark-section">
-            <div class="container two-column">
 
-                <div class="section-content reveal">
-                    <div class="section-label">Follow AAUREX</div>
+        <!-- ================= GOOGLE FORM / RECRUITMENT SECTION ================= -->
+        <section class="section-block">
 
-                    <h2>Stay connected with our latest updates.</h2>
+            <div class="section-heading">
+                <p>AAUREX RECRUITMENT</p>
+                <h2>Interested in Joining the AAUREX Team?</h2>
+            </div>
 
+            <div class="story-grid">
+
+                <div class="story-card">
+                    <h3>Team Applications</h3>
                     <p>
-                        Follow AAUREX on Instagram for official announcements, event updates,
-                        workshop details, recruitment posts, medical learning content,
-                        creative education updates and future opportunities.
+                        AAUREX periodically opens recruitment for students who want to contribute to education,
+                        research, events, content creation, workshops, and organisational development.
                     </p>
-
-                    <p>
-                        Our official Instagram handle:
-                        <strong>@aaurex.official</strong>
-                    </p>
-
-                    <div class="hero-actions">
-                        <a 
-                            href="https://www.instagram.com/aaurex.official?igsh=MXJ3ZXViMWM1MTl2ZA%3D%3D&utm_source=qr" 
-                            target="_blank" 
-                            class="btn-primary"
-                        >
-                            Follow on Instagram
-                        </a>
-
-                        <a 
-                            href="https://www.instagram.com/aaurex.official?igsh=MXJ3ZXViMWM1MTl2ZA%3D%3D&utm_source=qr" 
-                            target="_blank" 
-                            class="btn-secondary"
-                        >
-                            @aaurex.official
-                        </a>
-                    </div>
                 </div>
 
-                <div class="section-image reveal">
-                    <img 
-                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=90" 
-                        alt="AAUREX social media and communication"
-                    >
+                <div class="story-card">
+                    <h3>Google Form Updates</h3>
+                    <p>
+                        When recruitment is open, official Google Form links will be shared through AAUREX
+                        announcements, social media, and internal communication channels.
+                    </p>
+                </div>
+
+                <div class="story-card">
+                    <h3>Be Part of AAUREX</h3>
+                    <p>
+                        We look for passionate, responsible, creative, and committed students who want to grow
+                        with a professional medical education organisation.
+                    </p>
                 </div>
 
             </div>
+
         </section>
 
 
-        <!-- DIRECT CONTACT INFO -->
-        <section class="section">
-            <div class="container">
 
-                <div class="cta-card reveal">
-                    <div>
-                        <div class="section-label">Official Contact</div>
+        <!-- ================= SOCIAL SECTION ================= -->
+        <section class="section-block">
 
-                        <h2>For official communication, use the forms or contact AAUREX directly.</h2>
+            <div class="section-heading">
+                <p>CONNECT ONLINE</p>
+                <h2>Follow AAUREX for Updates</h2>
+            </div>
 
-                        <p>
-                            For formal communication, collaborations, proposals or institutional
-                            enquiries, you may also contact AAUREX through our official email.
-                        </p>
+            <div class="social-grid">
 
-                        <p>
-                            <strong>Email:</strong> aaurex.info@gmail.com
-                        </p>
+                <a href="https://www.instagram.com/aaurex.in" target="_blank" class="social-card">
+                    <h3>Instagram</h3>
+                    <p>Follow AAUREX for announcements, reels, events, medical learning content, and updates.</p>
+                </a>
 
-                        <p>
-                            <strong>Website:</strong> aaurex.in
-                        </p>
+                <a href="mailto:aaurex.info@gmail.com" class="social-card">
+                    <h3>Email</h3>
+                    <p>Contact us directly through our official AAUREX email for enquiries and collaboration.</p>
+                </a>
 
-                        <p>
-                            <strong>Instagram:</strong> @aaurex.official
-                        </p>
-                    </div>
+                <a href="members.html" class="social-card">
+                    <h3>Members</h3>
+                    <p>Meet the AAUREX team working behind education, research, events, and creative content.</p>
+                </a>
 
-                    <div class="cta-actions">
-                        <a 
-                            href="https://forms.gle/C2E7VLS5dbj5JxcS9" 
-                            target="_blank" 
-                            class="btn-primary"
-                        >
-                            Marketing Recruitment
-                        </a>
-
-                        <a 
-                            href="https://www.instagram.com/aaurex.official?igsh=MXJ3ZXViMWM1MTl2ZA%3D%3D&utm_source=qr" 
-                            target="_blank" 
-                            class="btn-secondary"
-                        >
-                            Instagram
-                        </a>
-                    </div>
-                </div>
+                <a href="workshops.html" class="social-card">
+                    <h3>Workshops</h3>
+                    <p>Explore AAUREX workshops, hands-on sessions, and practical medical learning experiences.</p>
+                </a>
 
             </div>
+
+        </section>
+
+
+
+        <!-- ================= FINAL CTA ================= -->
+        <section class="final-cta">
+
+            <p>JOIN THE AAUREX ECOSYSTEM</p>
+
+            <h2>
+                Connect with AAUREX and become part of a growing medical learning community.
+            </h2>
+
+            <a href="mailto:aaurex.info@gmail.com" class="primary-btn">Email AAUREX</a>
+
         </section>
 
     </main>
 
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container footer-grid">
 
-            <div>
-                <h3>AAUREX</h3>
-                <p>
-                    Alliance for Advancement in Universal Research, Education and Excellence.
-                </p>
-            </div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
 
-            <div>
-                <h4>Explore</h4>
-                <a href='/about'>About</a>
-                <a href='/research'>Research</a>
-                <a href='/workshops'>Workshops</a>
-                <a href='/conferences'>Conferences</a>
-            </div>
-
-            <div>
-                <h4>Community</h4>
-                <a href='/members'>Members</a>
-                <a href='/ai-tools'>AI Tools</a>
-                <a href='/contact'>Contact</a>
-            </div>
-
-            <div>
-                <h4>Contact</h4>
-                <p>aaurex.info@gmail.com</p>
-                <p>Instagram: @aaurex.official</p>
-                <p>Official Website: aaurex.in</p>
-            </div>
-
+        <div>
+            <h2>AAUREX</h2>
+            <p>Alliance for Advancement in Universal Research, Education and Excellence</p>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2026 AAUREX. All Rights Reserved.</p>
-        </div>
+        <p>
+            Website Designed & Developed by <strong>Tarun Murali Mandadi</strong>
+        </p>
+
     </footer>
 
+
+
+    <!-- ================= CONTACT FORM SCRIPT ================= -->
+    <script>
+        const contactForm = document.getElementById("aaurexContactForm");
+        const contactStatus = document.getElementById("contactStatus");
+        const submitBtn = document.getElementById("submitBtn");
+
+        contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+            contactStatus.textContent = "Please wait, your message is being sent.";
+
+            const formData = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                phone: document.getElementById("phone").value.trim(),
+                interest: document.getElementById("interest").value,
+                message: document.getElementById("message").value.trim()
+            };
+
+            try {
+                const response = await fetch("https://aaurex.onrender.com/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    contactStatus.textContent = "Message sent successfully. AAUREX will contact you soon.";
+                    contactForm.reset();
+                } else {
+                    contactStatus.textContent = result.message || "Something went wrong. Please try again.";
+                }
+
+            } catch (error) {
+                contactStatus.textContent = "Unable to send message. Please try again later.";
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
+        });
+    </script>
 
     <script src="js/script.js"></script>
 
 </body>
+
 </html>
